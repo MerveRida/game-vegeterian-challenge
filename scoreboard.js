@@ -48,7 +48,8 @@ $(document).ready(async (e) => {
         scoreSet = response;
     });
 
-    alert('continue');
+    alert("continue");
+    console.log(scoreSet);
     let scoresUpTo = 20;
     $('pageCount').html('Page Number '+scoresUpTo/20 +' out of '+scoreSet.length/20);
     $('scoreboardDiv').empty();
