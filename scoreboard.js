@@ -35,7 +35,7 @@ $(document).ready(async (e) => {
 
     // get scoreboard
     let scores = {
-        "url": "https://35.196.236.79/scoreboard",
+        "url": "http://35.196.236.79/scoreboard",
         "method": "GET",
     };
     let scoreSet;
