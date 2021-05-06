@@ -143,6 +143,11 @@ class User:
             except Exception:
                 response.status = 404
                 return f"USer {username} not found"
+            ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
+            ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
+            response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
             return user.jsonable()
         
         # Create a new user
@@ -153,6 +158,11 @@ class User:
             except Exception:
                 response.status = 400
                 return f"USer {username} already exists"
+            ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
+            ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
+            response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
             return user.jsonable()
 
         # update score of given user
@@ -166,6 +176,11 @@ class User:
                 response.status = 404
                 return f"User {username} to update not found"
 
+            ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
+            ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
+            response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
             User.updateScore(username, request.json)
             user = User.find(username)
             return user.jsonable()
@@ -181,6 +196,11 @@ class User:
                 response.status = 404
                 return f"User {username} to update not found"
 
+            ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
+            ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
+            response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
             user.updatePassword(username, request.json['password'])
             return user.jsonable()
 
@@ -198,6 +218,11 @@ class User:
 
             user.delete()
     
+            ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
+            ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
+            response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
             response.content_type = 'application/json'
             return json.dumps(True)
 
