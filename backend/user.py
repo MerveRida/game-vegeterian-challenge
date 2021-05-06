@@ -163,6 +163,7 @@ class User:
             response.headers['Access-Control-Allow-Origin'] = '*'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
+            response.content_type = 'application/json'
             return user.jsonable()
 
         # update score of given user
@@ -181,6 +182,7 @@ class User:
             response.headers['Access-Control-Allow-Origin'] = '*'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
+            response.content_type = 'application/json'
             User.updateScore(username, request.json)
             user = User.find(username)
             return user.jsonable()
@@ -202,6 +204,7 @@ class User:
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
             user.updatePassword(username, request.json['password'])
+            response.content_type = 'application/json'
             return user.jsonable()
 
 

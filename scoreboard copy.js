@@ -23,16 +23,16 @@ $(document).ready(async (e) => {
     });
 
     // add your score
-let updateScore = {
-    //"url": "http://35.196.236.79/score/" + window.localStorage.getItem("username"),
-    "url": "http://35.196.236.79/score/merve",
-    "method": "PUT",
-     "body": {
-         "score": 5
-     },
-    "contentType": 'json'
- };
-await $.ajax(updateScore).done();
+    // let updateScore = {
+    //     //"url": "http://35.196.236.79/score/" + window.localStorage.getItem("username"),
+    //     "url": "http://35.196.236.79/score/selam",
+    //     "method": "PUT",
+    //      "body": {
+    //          "score": 5
+    //      },
+    //     "responseType": 'json'
+    //  };
+    // await $.ajax(updateScore).done();
 
     // get scoreboard
     let scores = {
