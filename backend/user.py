@@ -127,12 +127,11 @@ class User:
     def setupBottleRoutes(app):
         @app.get('/scoreboard')
         def getUsersIndex():
-           ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
-        ALLOWED_HEADERS = \
-            'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
-        response.headers['Access-Control-Allow-Origin'] = '*'
-        response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
-        response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
+            ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
+            ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
+            response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
 
             return json.dumps(User.getScoreboard())
             
