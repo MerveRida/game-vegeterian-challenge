@@ -127,6 +127,11 @@ class User:
     def setupBottleRoutes(app):
         @app.get('/scoreboard')
         def getUsersIndex():
+            response.headers = {
+            'Access-Control-Allow-Headers':'Origin, X-Requested-With, Content-Type, Accept',
+            'Access-Control-Allow-Methods':'POST, GET, OPTIONS',
+            'Access-Control-Allow-Origin': '*'
+        }
             return json.dumps(User.getScoreboard())
             
         # probably not needed
