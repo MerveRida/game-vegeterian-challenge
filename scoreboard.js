@@ -34,17 +34,13 @@ $(document).ready(async (e) => {
     //await $.ajax(updateScore).done();
 
     // get scoreboard
-
+    let scores = {
+        "url": "http://35.196.236.79/scoreboard",
+        "method": "GET",
+    };
+    
     let scoreSet;
-    await $.ajax({
-        url: "http://35.196.236.79/scoreboard",
-        method: "GET",
-        headers: {
-            'Access-Control-Allow-Headers':'Origin, X-Requested-With, Content-Type, Accept',
-            'Access-Control-Allow-Methods':'POST, GET, OPTIONS',
-            'Access-Control-Allow-Origin': '*'
-        }
-    }).done(function (response) {
+    await $.ajax(scores).done(function (response) {
         scoreSet = response;
     });
 
