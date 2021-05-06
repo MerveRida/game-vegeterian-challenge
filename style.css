@@ -1,0 +1,102 @@
+/*Color Scheme:
+    white: #FFFFFFF
+    dark green: #84dcc6
+    green: #a5ffd6
+    pink: #ffa69e
+    dark pink: #ff686b
+*/
+
+body{
+    font: Arial;
+    font-family: Arial;
+    background-color: white;
+}
+
+#darkBox{
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+.restaurant{
+    color:#ffa69e;
+    background-color: rgba(255, 255, 255, 0);
+    border:0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.dark{
+    font: Arial;
+    font-family: Arial;
+    background-color: #011812;
+    color: white;
+}
+
+h1{
+    color: #ff686b;
+}
+
+p{
+    color: black;
+}
+
+img{
+    width: 300px;
+    float: left;
+    margin-right: 15px;
+}
+
+#profile{
+    display: block;
+}
+
+a{
+    border-radius: 5px;
+    font-weight: bolder;
+    border-style: solid;
+    background-color: #ffa69e;
+    padding: 15px;
+    color: #ff686b; 
+}
+
+#startButton{
+    text-align: center;
+    position: absolute;
+  right: 70px;
+  width: 300px;
+}
+#gameTimer, #gamePoints{
+    display: inline;
+    margin-right: 50px;
+}
+
+.choice{
+    background-color: #ffa69e;
+    text-align: center;
+    margin: 15px;
+    width: 250px;
+    height: 250px; 
+    display: inline-block;
+}
+
+.choice:hover{
+    background-color: #a5ffd6;
+}
+
+
+.foodImg{
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#scoreboardDiv{
+    border:3px;
+    border-style: solid;
+    border-color: #ffa69e; 
+    padding-bottom: 15px
+}

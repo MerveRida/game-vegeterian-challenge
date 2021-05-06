@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vegeterian Challenge Game</title>
+
+    <!-- Include links to CSS stylesheets below -->
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <label class="switch" id="darkBox">Dark Mode
+        <input type="checkbox" name="dark" id="darkSwitch">
+      </label>
+    <h1>Yeay, you win!</h1>
+    <img src="goodStuff.jpg">
+    <div id="profile">
+        <p id= "gameText">Great job, you chose an awesome vegeterian meal!</p>
+    </div>
+    <h3>Play again!</h3>
+    <br><br><br>
+    <a href="game.html" id="startButton">Play Again</a>
+    <a href="scoreboard.html" id="scoreboardButton">View Scoreboard</a>
+    <br><br><br><br><br><br><br><br><br><br>
+    <script>$("#gameText").html("Great job, you chose an awesome vegeterian meal in "+window.localStorage.getItem("timer") +" seconds!");</script>
+    <script src="win.js" type="module"></script>
+</body>
+
+</html>
