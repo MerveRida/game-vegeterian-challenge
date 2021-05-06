@@ -144,7 +144,7 @@ class User:
                 response.status = 404
                 return f"USer {username} not found"
             ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
-            ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
+            ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token, Authorization'
             response.headers['Access-Control-Allow-Origin'] = '*'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
@@ -163,7 +163,7 @@ class User:
             response.headers['Access-Control-Allow-Origin'] = '*'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
-            response.content_type = 'application/json'
+            response.content_type = 'text/plain'
             return user.jsonable()
 
         # update score of given user
@@ -182,7 +182,7 @@ class User:
             response.headers['Access-Control-Allow-Origin'] = '*'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
-            response.content_type = 'application/json'
+            response.content_type = 'text/plain'
             User.updateScore(username, request.json)
             user = User.find(username)
             return user.jsonable()
@@ -204,7 +204,7 @@ class User:
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
             user.updatePassword(username, request.json['password'])
-            response.content_type = 'application/json'
+            response.content_type = 'text/plain'
             return user.jsonable()
 
 
@@ -226,6 +226,6 @@ class User:
             response.headers['Access-Control-Allow-Origin'] = '*'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
-            response.content_type = 'application/json'
+            response.content_type = 'text/plain'
             return json.dumps(True)
 

@@ -23,16 +23,21 @@ $(document).ready(async (e) => {
     });
 
     // add your score
-let updateScore = {
-    //"url": "http://35.196.236.79/score/" + window.localStorage.getItem("username"),
-    "url": "http://35.196.236.79/score/merve",
-    "method": "PUT",
-     "body": {
-         "score": 5
-     },
-    "contentType": 'json'
- };
-await $.ajax(updateScore).done();
+    var settings = {
+        "url": "http://35.196.236.79/score/merve",
+        "method": "PUT",
+        "headers": {
+          "Content-Type": "text/plain"
+        },
+        "data": JSON.stringify({
+          "score": 14
+        }),
+        "withCredentials": true
+      };
+      
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+      });
 
     // get scoreboard
     let scores = {
