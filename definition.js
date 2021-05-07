@@ -24,12 +24,12 @@ $(document).ready(async (e) => {
     });
 
     let gif;
-    let settings = await {
+    let quotesettings = await {
         "url": "http://api.giphy.com/v1/gifs/search?api_key=oWBnjiXDj3ttOERTGpNsq8SGzz0IsSqu&q=vegeterian",
         "method": "GET",
     };
     
-    await $.ajax(settings).done(function (response) {
+    await $.ajax(quotesettings).done(function (response) {
         gif = response;
     });
 
@@ -42,7 +42,7 @@ $(document).ready(async (e) => {
     
     let word;
     if(window.localStorage.getItem('word')===null){
-        settings = {
+        let settings = {
             "async": false,
             "crossDomain": true,
             "url": "https://wordsapiv1.p.rapidapi.com/words/vegetarian/definitions",
