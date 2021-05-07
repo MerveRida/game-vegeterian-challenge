@@ -22,19 +22,7 @@ $(document).ready(async (e) => {
             darkened.removeClass('dark');
         }
     });
-    let advice;
-    let settings = await {
-        "url": "https://api.adviceslip.com/advice",
-        "method": "GET",
-    };
     
-    await $.ajax(settings).done(function (response) {
-        advice = JSON.parse(response);
-        console.log(advice["slip"]["advice"])
-    });
-
-    $('#advice').append('<p>Cutie advice from the developer: '+advice["slip"]["advice"]+'</p>')
-    timerCount = setInterval(function () { timer(); }, 1000);
 });
 
 let timerArray = ["", "Start", "1", "2"]

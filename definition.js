@@ -39,19 +39,7 @@ $(document).ready(async (e) => {
     gif = gif.data[random]['embed_url']
 
     $('#gif').append('<iframe src='+gif+'></iframe><p>Gif from Giphy</p>');
-    let advice;
-    let settings = await {
-        "url": "https://api.adviceslip.com/advice",
-        "method": "GET",
-    };
     
-    await $.ajax(settings).done(function (response) {
-        advice = JSON.parse(response);
-        console.log(advice["slip"]["advice"])
-    });
-
-    $('#advice').append('<p>Cutie advice from the developer: '+advice["slip"]["advice"]+'</p>')
-
     let word;
     if(window.localStorage.getItem('word')===null){
         let settings = {
