@@ -30,14 +30,24 @@ $(document).ready(async (e) => {
           "Content-Type": "text/plain"
         },
         "data": JSON.stringify({
-          "score": 14
+          "score": 1
         }),
-        "withCredentials": true
+
       };
       
       $.ajax(settings).done(function (response) {
         console.log(response);
       });
+
+    let get = {
+        "url": "http://35.196.236.79/users/nope",
+        "method": "GET",
+        "responseType": 'json'
+    };
+
+    await $.ajax(get).done(function (response) {
+        console.log(response);
+    });
 
     // get scoreboard
     let scores = {

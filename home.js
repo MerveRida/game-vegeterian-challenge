@@ -22,4 +22,17 @@ $(document).ready(async (e) => {
             console.log("is dark must be false,"+isDark());
         }
     });
+
+    let advice;
+    let settings = await {
+        "url": "https://api.adviceslip.com/advice",
+        "method": "GET",
+    };
+    
+    await $.ajax(settings).done(function (response) {
+        advice = JSON.parse(response);
+        console.log(advice["slip"]["advice"])
+    });
+
+    $('#advice').append('<p>Cutie advice from the developer: '+advice["slip"]["advice"]+'</p>')
 });

@@ -40,9 +40,8 @@ h1{
 .container{
     padding-bottom: 30px;
 }
-p{
-    color: black;
-}
+
+
 
 img{
     width: 300px;
@@ -70,6 +69,7 @@ a, button{
   right: 70px;
   width: 300px;
 }
+
 #gameTimer, #gamePoints{
     display: inline;
     margin-right: 50px;
@@ -120,4 +120,24 @@ label, input{
     border:3px;
     border-style: solid;
     border-color: #ffa69e; 
+}
+
+#definition{
+    float: left;
+    margin-left: 15px;
+}
+
+#gif{
+    float: left;
+}
+
+#advice{
+    position: absolute;
+    bottom: 0px;
+    background-color: #a5ffd6;
+    color:black;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
