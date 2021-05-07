@@ -24,7 +24,7 @@ class User:
         '''Writes back instance values into database'''
         with db.connect() as conn:
             cursor = conn.cursor()
-            cursor.execute("UPDATE Users SET highest_score = ? WHERE username = ? AND highest_score<?",
+            cursor.execute("UPDATE Users SET highest_score = ? WHERE username = ? AND highest_score>?",
                                (score, username, score))
             conn.commit()
         return 
@@ -125,11 +125,12 @@ class User:
         
     @staticmethod
     def setupBottleRoutes(app):
+
         @app.get('/scoreboard')
         def getUsersIndex():
             ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
             ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
-            response.headers['Access-Control-Allow-Origin'] = '*'
+            response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
 
@@ -144,8 +145,8 @@ class User:
                 response.status = 404
                 return f"USer {username} not found"
             ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
-            ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token, Authorization'
-            response.headers['Access-Control-Allow-Origin'] = '*'
+            ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
+            response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
             return user.jsonable()
@@ -160,11 +161,22 @@ class User:
                 return f"USer {username} already exists"
             ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
             ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
-            response.headers['Access-Control-Allow-Origin'] = '*'
+            response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
             response.content_type = 'text/plain'
             return user.jsonable()
+
+        @app.hook('after_request')
+        def enableCORSAfterRequestHook():
+            print ('After request hook.')
+            response.headers['Access-Control-Allow-Origin'] = '*'
+            
+
+        @app.route('/score', method=['GET', 'OPTIONS'])
+        def getRoot():
+            print ('Route handler')
+            return {'foo' : 'bar'}
 
         # update score of given user
         @app.put('/score/<username>')
@@ -179,7 +191,7 @@ class User:
 
             ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
             ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
-            response.headers['Access-Control-Allow-Origin'] = '*'
+            response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
             response.content_type = 'text/plain'
@@ -188,24 +200,24 @@ class User:
             return user.jsonable()
         
         # update password of given user
-        @app.put('/password/<username>')
-        def updatePassword(username):
+        #@app.put('/password/<username>')
+        #def updatePassword(username):
             '''Implements instance updating'''
     
-            try:
-                user = User.find(username)
-            except Exception:
-                response.status = 404
-                return f"User {username} to update not found"
+         #   try:
+          #      user = User.find(username)
+           # except Exception:
+            #    response.status = 404
+             #   return f"User {username} to update not found"
 
-            ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
-            ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
-            response.headers['Access-Control-Allow-Origin'] = '*'
-            response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
-            response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
-            user.updatePassword(username, request.json['password'])
-            response.content_type = 'text/plain'
-            return user.jsonable()
+       #     ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
+        #    ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
+         #   response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+        #    response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
+         #   response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
+        #    user.updatePassword(username, request.json['password'])
+         #   response.content_type = 'text/plain'
+          #  return user.jsonable()
 
 
         # delete given user => probably not needed
@@ -223,7 +235,7 @@ class User:
     
             ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
             ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
-            response.headers['Access-Control-Allow-Origin'] = '*'
+            response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
             response.content_type = 'text/plain'
