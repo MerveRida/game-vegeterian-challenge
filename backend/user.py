@@ -130,7 +130,7 @@ class User:
         def getUsersIndex():
             ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
             ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
-            response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+            response.headers['Access-Control-Allow-Origin'] = 'https://onceuponacode.app'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
 
@@ -146,7 +146,7 @@ class User:
                 return f"USer {username} not found"
             ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
             ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
-            response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+            response.headers['Access-Control-Allow-Origin'] = 'https://onceuponacode.app'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
             return user.jsonable()
@@ -161,7 +161,7 @@ class User:
                 return f"USer {username} already exists"
             ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
             ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
-            response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+            response.headers['Access-Control-Allow-Origin'] = 'https://onceuponacode.app'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
             response.content_type = 'text/plain'
@@ -191,7 +191,7 @@ class User:
 
             ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
             ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
-            response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+            response.headers['Access-Control-Allow-Origin'] = 'https://onceuponacode.app'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
             response.content_type = 'text/plain'
@@ -235,7 +235,7 @@ class User:
     
             ALLOWED_METHODS = 'PUT, GET, POST, DELETE, OPTIONS'
             ALLOWED_HEADERS = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
-            response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+            response.headers['Access-Control-Allow-Origin'] = 'https://onceuponacode.app'
             response.headers['Access-Control-Allow-Methods'] = ALLOWED_METHODS
             response.headers['Access-Control-Allow-Headers'] = ALLOWED_HEADERS
             response.content_type = 'text/plain'
