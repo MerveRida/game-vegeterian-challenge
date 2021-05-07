@@ -42,7 +42,7 @@ $(document).ready(async (e) => {
     
     let word;
     if(window.localStorage.getItem('word')===null){
-        let settings = {
+        settings = {
             "async": false,
             "crossDomain": true,
             "url": "https://wordsapiv1.p.rapidapi.com/words/vegetarian/definitions",
