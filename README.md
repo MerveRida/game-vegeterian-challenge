@@ -4,8 +4,8 @@
   
   <p><b>This game is to develop empathy for this issue.</b> The player is presented random food options and they try to choose a vegeterian full mean. If a choice is not vegeterian, oops, you need to start over. </p>
   
-  <h3> Development</h3>
-  
+  <h3>Development</h3>
+  <p> <b>In progress: </b> Working on the scoreboard, writing my own backend. </p>
   
   <h3> Resources</h3>
   <ul>
